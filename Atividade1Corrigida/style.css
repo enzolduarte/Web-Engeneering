@@ -1,0 +1,65 @@
+
+.temaEscuro{
+    background-color: #333;
+    color: aliceblue;
+}
+
+.temaClaro{
+    background-color: aliceblue;
+    color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f5f5f5;
+}
+header {
+    text-align: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+h2 {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+form p {
+    margin: 5px 0;
+}
+input {
+    padding: 5px;
+    margin-left: 5px;
+}
+span {
+    color: red;
+    font-size: 12px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+button {
+    cursor: pointer;
+    padding: 5px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    opacity: 0.8;
+}
+button:nth-child(1) {
+    background: #FFC107;
+}
+button:nth-child(2) {
+    background: #DC3545;
+    color: white;
+}
