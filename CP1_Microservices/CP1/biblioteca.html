@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <h2>Cadastrar Livro</h2>
+    <form id="formLivros">
+        <p>
+            Titulo
+            <input type="text" id="titulo" required>
+        </p>
+        <p>
+            Autor
+            <input type="text" id="autor" required>
+        </p>
+        <p>
+            Paginas
+            <input type="number" id="paginas" required>
+        </p>
+        <p>
+            Genero
+            <input type="text" id="genero">
+        </p>
+        <input type="button" onclick="salvar(event)" value="cadastrar">
+    </form>
+
+    <hr/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Paginas</th>
+                <th>Genero</th>
+            </tr>
+        </thead>
+        <tbody id="tbLivros">
+        </tbody>
+    </table>
+  </body>
+
+<script type="text/javascript" src="biblioteca.js"></script>
+
+</html>
