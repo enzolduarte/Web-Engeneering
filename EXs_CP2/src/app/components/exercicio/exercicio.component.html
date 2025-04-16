@@ -1,0 +1,214 @@
+<h1>Lista de Exercícios</h1>
+
+<h2>Ex2</h2>
+
+<label>Selecione um mês: </label>
+<input type="number" (change)="trocarMes($event)">
+
+@switch (mes) {
+    @case (1) {
+        <p>Janeiro</p>
+    }
+    @case (2) {
+        <p>Fevereiro</p>
+    }
+    @case (3) {
+        <p>Março</p>
+    }
+    @case (4) {
+        <p>Abril</p>
+    }
+    @case (5) {
+        <p>Maio</p>
+    }
+    @case (6) {
+        <p>Junho</p>
+    }
+    @case (7) {
+        <p>Julho</p>
+    }
+    @case (8) {
+        <p>Agosto</p>
+    }
+    @case (9) {
+        <p>Setembro</p>
+    }
+    @case (10) {
+        <p>Outubro</p>
+    }
+    @case (11) {
+        <p>Novembro</p>
+    }
+    @case (12) {
+        <p>Dezembro</p>
+    }
+    @default {
+        <p>Mês inválido</p>
+    }
+}
+
+<h2>Ex3</h2>
+
+<ul>
+    @for (itens of listaCompras; track $index) {
+        <li>{{$index + 1}} - {{itens}}</li>
+    } @empty {
+        <li>Nenhum item na lista</li>
+    }
+</ul>
+
+<h2>Ex4</h2>
+
+<label>Qual a sua idade?</label>
+<p>{{idade}}</p>
+<button (click)= "aumentarIdade($event)">Aumentar idade</button>
+<button (click)= "diminuirIdade($event)">Diminuir idade</button>
+
+@if(idade >= 18) {
+    <p ngClass="color-green">Acesso permitido</p>
+} @else {
+    <p ngClass="color-red">Acesso negado</p>
+}
+
+<h2>Ex5</h2>
+
+<ul>
+    @for (tarefa of listaTarefas; track $index) {
+        <li>{{tarefa}} 
+            <button (click)="removerTarefa($index)">Remover</button>
+        </li>
+    } @empty {
+        <li>Nenhuma tarefa pendente</li>
+    }
+</ul>
+
+<h2>Ex6</h2>
+
+<label>Selecione o status </label>
+<select (change)="atualizarStatus($event)">
+    <option value="pendente">Pendente</option>
+    <option value="enviado">Enviado</option>
+    <option value="entregue">Entregue</option>
+    <option value="desconhecido">Desconhecido</option>
+    <option value="retornado">Retornado</option>
+    <option value="cancelado">Cancelado</option>
+</select>
+
+@switch (status) {
+    @case ('pendente') {
+        <p>Aguardando confirmação</p>
+    }
+    @case ('enviado') {
+        <p>Pedido a caminho</p>
+    }
+    @case ('entregue') {
+        <p>Pedido entregue</p>
+    }
+    @default {
+        <p>Status desconhecido</p>
+    }
+}
+
+<h2>Ex7</h2>
+
+<ul>
+    @for (usuario of usuarios; track $index) {
+        <li>Nome: {{usuario.nome}}, Idade: {{usuario.idade}}</li>
+    } @empty {
+        <li>Nenhum item na lista</li>
+    }
+</ul>
+
+<h2>Ex8</h2>
+
+<label>Selecione o valor: </label>
+<input type="text" (change)="trocarValor($event)">
+
+@switch (valor) {
+    @case (1) {
+        <p>Um</p>
+    }
+    @case ('dois') {
+        <p>Dois</p>
+    }
+    @default {
+        <p>Valor não reconhecido</p>
+    }
+}
+
+<h2>Ex9</h2>
+
+<h3>Validar credenciais</h3>
+
+<label>Insira seu e-mail</label>
+<br>
+<input type="text" (change)="inserirEmail($event)">
+<br>
+<label>Insira sua senha</label>
+<br>
+<input type="text" (change)="inserirSenha($event)">
+
+@if (email === '' || senha === '') {
+    <p>Campos obrigatórios!</p>
+} @else if (loginInvalido) {
+    <p>Credenciais inválidas</p>
+} @else {
+    <p>Login bem-sucedido!</p>
+}
+
+<h2>Ex10</h2>
+
+<ul>
+    @for (produto of produtos; track produto.nome) {
+        @if (produto.promocao === true) {
+            <li ngClass="color-red">Nome: {{produto.nome}}</li>
+            <li ngClass="color-red">Preço: {{produto.preco}}</li>
+            <br>
+        } @else {
+            <li>Nome: {{produto.nome}}</li>
+            <li>Preço: {{produto.preco}}</li>
+            <br>
+        }
+    } @empty {
+        <li>Nenhum produto cadastrado</li>
+    }
+</ul>
+
+<h2>Ex11</h2>
+
+<label>Insira o valor 1 </label>
+<input type="number" (change)="receberValor1($event)">
+<br>
+<label>Insira o valor 2 </label>
+<input type="number" (change)="receberValor2($event)">
+<br>
+
+<label>Selecione a operação</label>
+<select (change)="atualizarOperacao($event)">
+    <option value="soma">soma</option>
+    <option value="subtracao">subtração</option>
+    <option value="multiplicacao">multiplicação</option>
+    <option value="divisao">divisão</option>
+</select>
+
+@switch (operacao) {
+    @case ('soma') {
+        <p>Resultado: {{valor1 + valor2}}</p>
+    }
+    @case ('subtracao') {
+        <p>Resultado: {{valor1 - valor2}}</p>
+    }
+    @case ('multiplicacao') {
+        <p>Resultado: {{valor1 * valor2}}</p>
+    }
+    @case ('divisao') {
+        @if (valor2 === 0) {
+            <p>Erro: divisão por zero!</p>
+        } @else {
+            <p>Resultado: {{valor1 / valor2}}</p>
+        }
+    }
+    @default {
+        <p>operação não reconhecida</p>
+    }
+}
